@@ -14,12 +14,15 @@ Login at [AWS](https://console.aws.amazon.com) account and get Access Key, Secre
 Installation
 ------------
 This plugin require [AWS SDK for PHP](https://github.com/aws/aws-sdk-php)- Please download in /app/Vendor/aws - Or if you have downloaded already - please update ApiTransport.php to load correctly
-App::import('Vendor', 'aws', array('file' => 'aws'. DS . 'aws-autoloader.php'));
+
+    App::import('Vendor', 'aws', array('file' => 'aws'. DS . 'aws-autoloader.php'));
 
 
-Download and place in /app/Plugin folder, After upload ApiTransport location look like - /app/Plugin/Ses/Network/Email/ApiTransport.php
+Download and place in /app/Plugin folder, After upload ApiTransport location look like - */app/Plugin/Ses/Network/Email/ApiTransport.php*
 
 Load the plugin in your bootstrap.php
+
+
     CakePlugin::load('Ses');
 
 
@@ -29,13 +32,13 @@ To enable the transport, add the following information to your Config/email.php:
 
     class EmailConfig {
         public $ses = array(
-		    'transport' => 'Ses.Api',
-		    'key' => $S3_ACCESS,
-		    'secret' => $S3_SECRET,
-		    'region' => $SNS_REGION,
-		    //'charset' => 'utf-8',
-		    //'headerCharset' => 'utf-8',
-	    );
+            'transport' => 'Ses.Api',
+            'key' => $S3_ACCESS,
+            'secret' => $S3_SECRET,
+            'region' => $SNS_REGION,
+	    //'charset' => 'utf-8',
+	    //'headerCharset' => 'utf-8',
+        );
     }
 
 
